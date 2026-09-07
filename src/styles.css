@@ -1,0 +1,125 @@
+:root {
+	color-scheme: dark;
+	--bg-near: #1e3a5f;
+	--bg-mid: #0b1220;
+	--bg-far: #05070d;
+	--surface: rgba(255, 255, 255, .06);
+	--edge: rgba(255, 255, 255, .12);
+	--edge-strong: rgba(255, 255, 255, .2);
+	--ink: #f8fafc;
+	--ink-dim: #94a3b8;
+	--ink-pill: #e2e8f0;
+	--accent-a: #5eead4;
+	--accent-b: #3b82f6;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	/* dvh keeps the card centred when mobile browser chrome slides away. The vh
+	   declaration above is the fallback for browsers that do not know dvh. */
+	min-height: 100dvh;
+	margin: 0;
+	padding: 24px;
+	background: radial-gradient(120% 110% at 20% 5%, var(--bg-near) 0%, var(--bg-mid) 55%, var(--bg-far) 100%);
+	color: var(--ink);
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.card {
+	padding: 48px 56px;
+	border: 1px solid var(--edge);
+	border-radius: 20px;
+	background: var(--surface);
+	box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .6);
+	backdrop-filter: blur(8px);
+	text-align: center;
+}
+
+.badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 72px;
+	height: 72px;
+	margin: 0 auto 22px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+	color: #04121a;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+h1 {
+	margin: 0 0 8px;
+	font-size: 32px;
+	font-weight: 600;
+	letter-spacing: -.02em;
+	line-height: 1.15;
+}
+
+.role {
+	margin: 0 0 30px;
+	color: var(--ink-dim);
+	font-size: 14px;
+}
+
+.links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	justify-content: center;
+}
+
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	/* Floor rather than fixed height, so the target stays tappable if text wraps. */
+	min-height: 44px;
+	padding: 12px 20px;
+	border: 1px solid var(--edge-strong);
+	border-radius: 999px;
+	color: var(--ink-pill);
+	font-size: 13px;
+	text-decoration: none;
+	transition: background-color .15s ease, border-color .15s ease;
+}
+
+.pill svg {
+	width: 16px;
+	height: 16px;
+	fill: currentColor;
+}
+
+.pill:hover {
+	border-color: rgba(255, 255, 255, .38);
+	background: rgba(255, 255, 255, .08);
+}
+
+.pill:focus-visible {
+	outline: 2px solid var(--accent-a);
+	outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+	.card {
+		padding: 36px 28px;
+	}
+
+	h1 {
+		font-size: 26px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pill {
+		transition: none;
+	}
+}
