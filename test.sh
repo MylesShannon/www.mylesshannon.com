@@ -123,7 +123,7 @@ check "has exactly one h1" test "$(count '<h1' "$HTML")" = 1
 # Matches <a>, <A, and a tag broken across lines, not only the literal "<a ".
 check "has exactly two links" test "$(count '<a([[:space:]>]|$)' "$HTML")" = 2
 check "links to github profile" grep -qE 'href="https://github\.com/MylesShannon"' "$HTML"
-check "links to linkedin profile" grep -qE 'href="https://www\.linkedin\.com/in/myles-shannon-27304680/"' "$HTML"
+check "links to linkedin profile" grep -qE 'href="https://www\.linkedin\.com/in/mylesshannon/"' "$HTML"
 # Anchored on the tags so a longer title cannot satisfy an "exact" requirement.
 check "role line is exact" grep -qE '>Software Engineer at NVIDIA<' "$HTML"
 check "declares canonical url" grep -q 'rel="canonical"' "$HTML"
