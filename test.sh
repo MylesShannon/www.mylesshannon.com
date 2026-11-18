@@ -125,7 +125,7 @@ check "has exactly two links" test "$(count '<a([[:space:]>]|$)' "$HTML")" = 2
 check "links to github profile" grep -qE 'href="https://github\.com/MylesShannon"' "$HTML"
 check "links to linkedin profile" grep -qE 'href="https://www\.linkedin\.com/in/mylesshannon/"' "$HTML"
 # Anchored on the tags so a longer title cannot satisfy an "exact" requirement.
-check "role line is exact" grep -qE '>Software Engineer at NVIDIA<' "$HTML"
+check "role line is exact" grep -qE '>Senior Software Engineer at NVIDIA<' "$HTML"
 check "declares canonical url" grep -q 'rel="canonical"' "$HTML"
 
 # The leading guard stops this matching inside `prefers-color-scheme: dark`, which would
